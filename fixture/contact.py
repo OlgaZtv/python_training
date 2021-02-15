@@ -1,18 +1,12 @@
-from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 
-class ApplicationContact:
+class ContactHelper:
 
-    def __init__(self):
-        self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(30)
+    def __init__(self, app):
+        self.app = app
 
-    def logout(self):
-        wd = self.wd
-        wd.find_element_by_link_text("Logout").click()
-
-    def add_contact_to_adress_book(self, contact):
-        wd = self.wd
+    def add_contact(self, contact):
+        wd = self.app.wd
         self.open_home_page()
         # init contact creation
         wd.find_element_by_link_text("add new").click()
@@ -95,20 +89,3 @@ class ApplicationContact:
         wd.find_element_by_name("notes").send_keys(contact.notes)
         # submit contact creation
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
-
-    def login(self, username, password):
-        wd = self.wd
-        self.open_home_page()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(username)
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(password)
-        wd.find_element_by_xpath("//input[@value='Login']").click()
-
-    def open_home_page(self):
-        wd = self.wd
-        wd.get("http://localhost/addressbook/")
-
-    def destroy(self):
-        self.wd.quit()

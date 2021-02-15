@@ -1,7 +1,11 @@
 
 class SessionHelper:
 
-    def __init__(self, app):
+    def __init__(self, app) -> object:
+        """
+
+        :type app: object
+        """
         self.app = app
 
 
