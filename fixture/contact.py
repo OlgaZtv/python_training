@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import Select
 from model.contact import Contact
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -131,7 +132,7 @@ class ContactHelper:
         self.open_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
-    @property
+
     def get_contact_list(self):
         wd = self.app.wd
         self.open_home_page()
