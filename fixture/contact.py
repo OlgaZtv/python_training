@@ -23,11 +23,11 @@ class ContactHelper:
         if not wd.current_url.endswith("/addressbook/"):
             wd.find_element_by_link_text("home").click()
 
-    def edit(self, new_contacts_form):
+    def edit_contact_by_index(self, index, new_contacts_form):
         wd = self.app.wd
         self.open_home_page()
         # init contact edition
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # fill contact form
         self.fill_contact(new_contacts_form)
@@ -35,6 +35,9 @@ class ContactHelper:
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
         self.return_to_home_page()
         self.contact_cache = None
+
+    def edit(self):
+        self.edit_contact_by_index(0)
 
     def delete_contact_by_index(self, index):
         wd = self.app.wd
