@@ -1,8 +1,10 @@
 import re
+from random import randrange
 
-def test_contacts(app):
-    contact_from_home_page = app.contact.get_contact_list()[0]
-    contact_from_edit_page = app.contact.get_contact_info_from_edit_page(0)
+def test_contacts(app, db):
+    random_index = randrange(app.contact.count())
+    contact_from_home_page = db.get_contact_list()[random_index]
+    contact_from_edit_page = app.contact.get_contact_info_from_edit_page(random_index)
     assert contact_from_home_page.firstname == contact_from_edit_page.firstname
     assert contact_from_home_page.lastname == contact_from_edit_page.lastname
     assert contact_from_home_page.address == contact_from_edit_page.address
