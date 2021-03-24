@@ -3,6 +3,7 @@ from model.contact import Contact
 import re
 
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -36,6 +37,20 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cache = None
 
+    def modify_contact_by_id(self, id, contact):
+        wd = self.app.wd
+        self.open_home_page()
+        # init contact edition
+        self.select_contact_by_id(id)
+        # click to edit
+        wd.find_element_by_xpath("//img[@title='Edit']//parent::a[contains(@href,'id="+id+"')]").click()
+        # fill contact form
+        self.fill_contact(contact)
+        # submit contact edition
+        wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
     def edit(self):
         self.modify_contact_by_index(0)
 
@@ -50,6 +65,23 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         self.return_to_home_page()
         self.contact_cache = None
+
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.open_home_page()
+        # init contact deletion
+        self.select_contact_by_id(id)
+        # delete contact by id
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        # alert acceptation
+        wd.switch_to_alert().accept()
+        self.return_to_home_page()
+        self.contact_cache = None
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
 
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
