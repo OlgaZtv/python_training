@@ -1,5 +1,6 @@
 from model.group import Group
 from fixture.orm import ORMFixture
+# просто для теста коннекта
 
 db = ORMFixture(host="127.0.0.1", name="addressbook", user="root", password="")
 

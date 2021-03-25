@@ -6,18 +6,25 @@ import jsonpickle
 import getopt
 import sys
 
+# block for read options in command line (parameters)
+# n - amount of generated testdata
+# f- filename where we put generated testdata
 try:
     opts, args=getopt.getopt(sys.argv[1:], "n:f:", ["number of contacts", "file"])
 except getopt.GetoptError as err:
     getopt.usage()
     sys.exit(2)
 
+# default values of parameters
 n=5
 f="data/contacts.json"
 
+# if parameters n/f specified
 for o, a in opts:
+    # get parameter (-n) value for amount and convert to int
     if o == "-n":
         n = int(a)
+        # get parameter value filename (-f) as string without converting
     elif o == "-f":
         f=a
 
@@ -35,9 +42,10 @@ testdata = [Contact(firstname="", middlename="", lastname="")] + [
             address2=random_string("address2", 10), phone2=random_string("phone2", 10), notes=random_string("notes", 10))
             for i in range(n)
 ]
-
+# define path to file where we save testdata generated before  and join .. to jump up and filename
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
 
+# open this file and save testdata
 with open(file, "w") as out:
     jsonpickle.set_encoder_options("json", indent=2)
     out.write(jsonpickle.encode(testdata))

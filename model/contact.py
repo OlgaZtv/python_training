@@ -35,12 +35,16 @@ class Contact:
         self.all_phones_from_home_page = all_phones_from_home_page
         self.all_emails_from_home_page = all_emails_from_home_page
 
+    # переопределяем представление результатов в консоли - потому что по умолчанию мы видим только адрес памяти, а не значение
     def __repr__(self):
         return "%s:%s:%s" % (self.id, self.firstname, self.lastname)
+
+    # переопределяем функцию равенства - потому что python по умолчанию сравнивает физическое место в памяти (не реальное значение)
 
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) and self.firstname == other.firstname and self.lastname == other.lastname
 
+    # подготовить обходной путь для 'None' id если id = None присвоить большое значение - оно перемещается в конец списка, когда будет отсортировано
     def id_or_max(self):
         if self.id:
             return int(self.id)
