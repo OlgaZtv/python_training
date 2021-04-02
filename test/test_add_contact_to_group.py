@@ -27,6 +27,8 @@ def test_add_contact_to_group(app, ormdb):
         group = list_all_groups[index]
     # добавляем контакт в группу
     app.contact.add_contact_to_group(contact, group)
+    # проверяем что после добавления, контакт входит в группу
+    assert group in ormdb.get_groups_for_contact(contact)
 
 
 

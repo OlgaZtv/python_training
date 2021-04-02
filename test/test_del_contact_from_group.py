@@ -29,4 +29,6 @@ def test_del_contact_from_group(app, ormdb):
         # определяем список групп, в которых находится контакт и выбираем одну случайную
         index = random.randrange(len(list_groups_for_contact))
         group = list_groups_for_contact[index]
-        app.contact.del_from_group(contact, group)
+    app.contact.del_from_group(contact, group)
+    # проверяем, что после удаления, контакт не входит в группу из которой удалили(бд)
+    assert group not in ormdb.get_groups_for_contact(contact)
