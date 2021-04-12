@@ -1,0 +1,119 @@
+{
+  "2fa7a99af8fc6142803ea4bab8bd93fc" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b50140e89aa4c58",
+      "status" : "broken",
+      "statusDetails" : "selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [name=\"user\"]",
+      "time" : {
+        "start" : 1618231285036,
+        "stop" : 1618231286076,
+        "duration" : 1040
+      }
+    } ]
+  },
+  "69f4b88d148e763f1892704789f4e2f7" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e61541ef417961cd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618231283862,
+        "stop" : 1618231284947,
+        "duration" : 1085
+      }
+    } ]
+  },
+  "63ddd405a7c16b62c15ec6832083d339" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "12a743de8d0da44e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618231278065,
+        "stop" : 1618231280381,
+        "duration" : 2316
+      }
+    } ]
+  },
+  "d31675755d4b8ab127594a4733a68493" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8676cb40974623e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert [1:;;, 2:name...-So8O|B}, ...] == [1:;;, 2:name...-So8O|B}, ...]\n  Left contains one more item: None:name=u+P\"WY;header `5)( H_eYm<#O'T-;footerC ;s\n  Use -v to get the full diff",
+      "time" : {
+        "start" : 1618231282824,
+        "stop" : 1618231283829,
+        "duration" : 1005
+      }
+    } ]
+  },
+  "ef0e48537bd2d07a714771ce63695c81" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d0d965fd48eac82c",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert [1:;;, 2:name...-So8O|B}, ...] == [1:;;, 2:name...-So8O|B}, ...]\n  Left contains one more item: None:nameUL;headerO6U9?.z8;&;footero`'a\n  Use -v to get the full diff",
+      "time" : {
+        "start" : 1618231281705,
+        "stop" : 1618231282706,
+        "duration" : 1001
+      }
+    } ]
+  },
+  "5e3f0d7bc4bddeaefc931eda27a2d3ff" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2aaa747508de79ba",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618231280430,
+        "stop" : 1618231281605,
+        "duration" : 1175
+      }
+    } ]
+  }
+}
